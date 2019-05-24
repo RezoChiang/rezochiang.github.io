@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
 <head>
-<!-- 2019-05-24 五 20:40 -->
+<!-- 2019-05-24 五 21:24 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>静态页面生成调教</title>
@@ -22,6 +22,7 @@
 <meta name="mobile-web-app-capable" content="yes"/>
 <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="/assets/css/all.css" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="/assets/js/all.js"></script>
 <script type="text/javascript">
@@ -77,80 +78,82 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content">
+<header>
 <h1 class="title">静态页面生成调教</h1>
-<div id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
+<li><a href="#orgdef32a6">2019-05-24 开始使用</a></li>
 <li><a href="#org1d7d9e0">遗留问题</a></li>
 <li><a href="#orgcbb13d6">参考</a></li>
 </ul>
 </div>
-</div>
+</nav>
+
+<div id="outline-container-orgdef32a6" class="outline-2">
+<h2 id="orgdef32a6">2019-05-24 开始使用</h2>
+<div class="outline-text-2" id="text-orgdef32a6">
 <p>
-今天重新捡起了静态发布.
+今天重新捡起了静态发布.<br />
 </p>
 
 <p>
-部署一个Wordpress并不费劲, 但是我想专注于内容. 已经习惯了Emacs中的编辑工作. 因为之前有在Hexo, jekyll, Hugo和org-publish中考察试用过. 当时放弃Hexo的原因主要在于Hexo对org-mode的支持:
+部署一个Wordpress并不费劲, 但是我想专注于内容. 已经习惯了Emacs中的编辑工作. 因为之前有在Hexo, jekyll, Hugo和org-publish中考察试用过. 当时放弃Hexo的原因主要在于Hexo对org-mode的支持:<br />
 </p>
 <ol class="org-ol">
-<li>之前版本的Emacs编辑md文件, 插入代码的编辑会报错, 而我并不想解决这些错误;</li>
-<li>换用Markdown会得到较好的支持, 但md 文件不能方便的运行片段并获得结果;</li>
+<li>之前版本的Emacs编辑md文件, 插入代码的编辑会报错, 而我并不想解决这些错误;<br /></li>
+<li>换用Markdown会得到较好的支持, 但md 文件不能方便的运行片段并获得结果;<br /></li>
 </ol>
-
 <p>
-目前对生成进行了自定义, 取消了自带样式, 引入了bootstrap, 并定义了一个简单的模板;
+目前对生成进行了自定义, 取消了自带样式, 引入了bootstrap, 并定义了一个简单的模板;<br />
 </p>
 
 <p>
-所以目前的流程就是:
+所以目前的流程就是:<br />
 </p>
 
+<p>
+<img src="./assets/images/博客编辑流程.png" alt="博客编辑流程.png" /><br />
+相对而言比较简单, 更重要的是没那么多依赖.<br />
+</p>
 
-<div class="figure">
-<p><img src="./assets/images/博客编辑流程.png" alt="博客编辑流程.png" />
+<p>
+需要的包: ox-publish, htmlize<br />
+配置文件根据参考修改而来, 去掉了默认样式, 引入了bootstrap和自定义css+js文件;<br />
+静态文件也是可以分离开的.<br />
 </p>
 </div>
-
-<p>
-相对而言比较简单, 更重要的是没那么多依赖.
-需要的包: ox-publish, htmlize
-配置文件根据参考修改而来, 去掉了默认样式, 引入了bootstrap和自定义css+js文件;
-</p>
-
-<div class="figure">
-<p><img src="./assets/images/博客编辑流程.png" alt="博客编辑流程.png" />
-</p>
 </div>
-
-
 
 <div id="outline-container-org1d7d9e0" class="outline-2">
 <h2 id="org1d7d9e0">遗留问题</h2>
 <div class="outline-text-2" id="text-org1d7d9e0">
 <ol class="org-ol">
-<li class="off"><code>[&#xa0;]</code> 锚点链接不正确可能导致发布失败</li>
+<li class="off"><code>[&#xa0;]</code> 锚点链接不正确可能导致发布失败;<br /></li>
+<li class="off"><code>[&#xa0;]</code> 因为要检查文件是否被修改, 在数量较多(超过200个)时会导致发布变慢;<br /></li>
 </ol>
 </div>
 </div>
+
 <div id="outline-container-orgcbb13d6" class="outline-2">
 <h2 id="orgcbb13d6">参考</h2>
 <div class="outline-text-2" id="text-orgcbb13d6">
 <ol class="org-ol">
-<li>bootstrapcdn: <a href="https://www.bootstrapcdn.com">https://www.bootstrapcdn.com</a></li>
-<li>bootstrapcdn(国内):<a href="https://www.bootcdn.cn">https://www.bootcdn.cn</a></li>
-<li>Org官方文档: <a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html</a></li>
-<li>Org官方手册: <a href="https://orgmode.org/manual/HTML-Export.html#HTML-Export">https://orgmode.org/manual/HTML-Export.html#HTML-Export</a></li>
-<li>org官方教程: <a href="https://orgmode.org/worg/org-web.html">https://orgmode.org/worg/org-web.html</a></li>
-<li>org-publish发布配置: <a href="http://www.i3s.unice.fr/~malapert/org/tips/emacs_orgmode.html">http://www.i3s.unice.fr/~malapert/org/tips/emacs_orgmode.html</a></li>
-<li>web展示库: <a href="https://revealjs.com">https://revealjs.com</a></li>
+<li>bootstrapcdn: <a href="https://www.bootstrapcdn.com">https://www.bootstrapcdn.com</a><br /></li>
+<li>bootstrapcdn(国内):<a href="https://www.bootcdn.cn">https://www.bootcdn.cn</a><br /></li>
+<li>Org官方文档: <a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html</a><br /></li>
+<li>Org官方手册: <a href="https://orgmode.org/manual/HTML-Export.html#HTML-Export">https://orgmode.org/manual/HTML-Export.html#HTML-Export</a><br /></li>
+<li>org官方教程: <a href="https://orgmode.org/worg/org-web.html">https://orgmode.org/worg/org-web.html</a><br /></li>
+<li>org-publish发布配置: <a href="http://www.i3s.unice.fr/~malapert/org/tips/emacs_orgmode.html">http://www.i3s.unice.fr/~malapert/org/tips/emacs_orgmode.html</a><br /></li>
+<li>发布参数列表: <a href="https://orgmode.org/manual/Publishing-options.html">https://orgmode.org/manual/Publishing-options.html</a><br /></li>
+<li>web展示库: <a href="https://revealjs.com">https://revealjs.com</a><br /></li>
 </ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-05-24 五 20:40</p>
+<p class="date">Created: 2019-05-24 五 21:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
