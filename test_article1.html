@@ -1,186 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
 <head>
-<!-- 2019-05-24 五 14:41 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2019-05-24 五 18:47 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>内容测试用例</title>
 <meta name="generator" content="Org mode" />
 <meta name="description" content="有关开始, 过程, 和结束的零散碎片; 问题与答案的混合;"
  />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
+<meta name="keywords" content="朝花燃尽" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="x5-fullscreen" content="true">
+<meta name="screen-orientation" content="portrait">
+<meta name="browsermode" content="application">
+<meta name="x5-orientation" content="portrait">
+<meta name="x5-page-mode" content="app">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" type="text/css" href="./assets/css/all.css" />
 <script type="text/javascript">
 /*
@@ -230,29 +69,27 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
 <h1 class="title">内容测试用例</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb97ab08">1. 基本内容</a>
-<ul>
-<li><a href="#org68f3f37">1.1. 直接使用 org-publish发布页面</a></li>
-<li><a href="#org5fcc259">1.2. <span class="todo TODO">TODO</span> 测试待办事项 <code>[1/2]</code></a></li>
-<li><a href="#org65a2035">1.3. 链接和引用</a></li>
-</ul>
-</li>
-<li><a href="#orgbcb6df3">2. 表格示例: 常用Emacs插件</a></li>
-<li><a href="#orgf309916">3. 代码片段示例</a></li>
+<li><a href="#orgb97ab08">基本内容</a></li>
+<li><a href="#orgbcb6df3">表格示例: 常用Emacs插件</a></li>
+<li><a href="#orgf309916">代码片段示例</a></li>
 </ul>
 </div>
 </div>
 
 
 <div id="outline-container-orgb97ab08" class="outline-2">
-<h2 id="orgb97ab08"><span class="section-number-2">1</span> 基本内容</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="orgb97ab08">基本内容</h2>
+<div class="outline-text-2" id="text-orgb97ab08">
 <p>
 Hello, World, 这是一段简短的介绍.
 换行需要中间留一行空白.
@@ -267,9 +104,9 @@ Hello, World, 这是一段简短的介绍.
 </p>
 </div>
 
-<div id="outline-container-org68f3f37" class="outline-3">
-<h3 id="org68f3f37"><span class="section-number-3">1.1</span> 直接使用 org-publish发布页面</h3>
-<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a id="org68f3f37"></a>直接使用 org-publish发布页面<br />
+<div class="outline-text-3" id="text-org68f3f37">
 <p>
 <b>样式问题暂不考虑</b>
 </p>
@@ -287,19 +124,19 @@ Hello, World, 这是一段简短的介绍.
 </p>
 </div>
 
-<div id="outline-container-org0b2744f" class="outline-4">
-<h4 id="org0b2744f">遗留问题</h4>
+<ul class="org-ul">
+<li><a id="org0b2744f"></a>遗留问题<br />
 <div class="outline-text-4" id="text-org0b2744f">
 <ol class="org-ol">
 <li class="off"><code>[&#xa0;]</code> 没有页头页脚</li>
 <li class="off"><code>[&#xa0;]</code> 没有样式</li>
 </ol>
 </div>
-</div>
-</div>
-<div id="outline-container-org5fcc259" class="outline-3">
-<h3 id="org5fcc259"><span class="section-number-3">1.2</span> <span class="todo TODO">TODO</span> 测试待办事项 <code>[1/2]</code></h3>
-<div class="outline-text-3" id="text-1-2">
+</li>
+</ul>
+</li>
+<li><a id="org5fcc259"></a><span class="todo TODO">TODO</span> 测试待办事项 <code>[1/2]</code><br />
+<div class="outline-text-3" id="text-org5fcc259">
 <ul class="org-ul">
 <li>State "TODO"       from              <span class="timestamp-wrapper"><span class="timestamp">[2019-05-24 五 12:16] </span></span> <br />
 需要指定待办</li>
@@ -307,13 +144,10 @@ Hello, World, 这是一段简短的介绍.
 <li class="off"><code>[&#xa0;]</code> 待办子项目2</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org65a2035" class="outline-3">
-<h3 id="org65a2035"><span class="section-number-3">1.3</span> 链接和引用</h3>
-<div class="outline-text-3" id="text-1-3">
-</div>
-<div id="outline-container-org4aaa8bb" class="outline-4">
-<h4 id="org4aaa8bb">外部图片:</h4>
+</li>
+<li><a id="org65a2035"></a>链接和引用<br />
+<ul class="org-ul">
+<li><a id="org4aaa8bb"></a>外部图片:<br />
 <div class="outline-text-4" id="text-org4aaa8bb">
 
 <div class="figure">
@@ -321,11 +155,10 @@ Hello, World, 这是一段简短的介绍.
 </p>
 </div>
 </div>
-</div>
-<div id="outline-container-org7703a97" class="outline-4">
-<h4 id="org7703a97">内部图片:</h4>
+</li>
+<li><a id="org7703a97"></a>内部图片:<br />
 <div class="outline-text-4" id="text-org7703a97">
-<table id="org5999669" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org5999669">
 
 
 <colgroup>
@@ -368,17 +201,15 @@ Hello, World, 这是一段简短的介绍.
 </p>
 </div>
 </div>
-</div>
-<div id="outline-container-orgd18f0c7" class="outline-4">
-<h4 id="orgd18f0c7">外部链接</h4>
+</li>
+<li><a id="orgd18f0c7"></a>外部链接<br />
 <div class="outline-text-4" id="text-orgd18f0c7">
 <p>
 <a href="https:www.google.com">google.com</a>
 </p>
 </div>
-</div>
-<div id="outline-container-orge014471" class="outline-4">
-<h4 id="orge014471">锚点:</h4>
+</li>
+<li><a id="orge014471"></a>锚点:<br />
 <div class="outline-text-4" id="text-orge014471">
 <p>
 内部锚点(C-c C-l编辑)
@@ -387,16 +218,18 @@ Hello, World, 这是一段简短的介绍.
 
 <p>
 外部锚点
- <a href="index.org#2019-05-24%20Hello,42">2019-05-24 功能测试</a>
+ <a href="index.org#%E6%89%80%E6%9C%89%E5%88%97%E8%A1%A8">2019-05-24 功能测试</a>
 </p>
 </div>
-</div>
-</div>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 <div id="outline-container-orgbcb6df3" class="outline-2">
-<h2 id="orgbcb6df3"><span class="section-number-2">2</span> 表格示例: 常用Emacs插件</h2>
-<div class="outline-text-2" id="text-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<h2 id="orgbcb6df3">表格示例: 常用Emacs插件</h2>
+<div class="outline-text-2" id="text-orgbcb6df3">
+<table>
 
 
 <colgroup>
@@ -516,8 +349,8 @@ Hello, World, 这是一段简短的介绍.
 </div>
 </div>
 <div id="outline-container-orgf309916" class="outline-2">
-<h2 id="orgf309916"><span class="section-number-2">3</span> 代码片段示例</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgf309916">代码片段示例</h2>
+<div class="outline-text-2" id="text-orgf309916">
 <p>
 各种姿势的Hello, World
 JavaScript:
@@ -539,7 +372,7 @@ Lua:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-05-24 五 14:41</p>
+<p class="date">Created: 2019-05-24 五 18:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
