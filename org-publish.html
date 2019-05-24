@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
 <head>
-<!-- 2019-05-24 五 20:21 -->
+<!-- 2019-05-24 五 20:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>静态页面生成调教</title>
@@ -21,8 +21,9 @@
 <meta name="x5-page-mode" content="app"/>
 <meta name="mobile-web-app-capable" content="yes"/>
 <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="./assets/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/all.css" />
 <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/assets/js/all.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -81,8 +82,8 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfa99762">遗留问题</a></li>
-<li><a href="#orgca80e9a">参考</a></li>
+<li><a href="#org1d7d9e0">遗留问题</a></li>
+<li><a href="#orgcbb13d6">参考</a></li>
 </ul>
 </div>
 </div>
@@ -94,7 +95,7 @@ for the JavaScript code in this tag.
 部署一个Wordpress并不费劲, 但是我想专注于内容. 已经习惯了Emacs中的编辑工作. 因为之前有在Hexo, jekyll, Hugo和org-publish中考察试用过. 当时放弃Hexo的原因主要在于Hexo对org-mode的支持:
 </p>
 <ol class="org-ol">
-<li>当前的Emacs编辑md文件, 插入代码的编辑会报错, 而我并不想解决这些错误;</li>
+<li>之前版本的Emacs编辑md文件, 插入代码的编辑会报错, 而我并不想解决这些错误;</li>
 <li>换用Markdown会得到较好的支持, 但md 文件不能方便的运行片段并获得结果;</li>
 </ol>
 
@@ -112,14 +113,30 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
+<p>
+相对而言比较简单, 更重要的是没那么多依赖.
+需要的包: ox-publish, htmlize
+配置文件根据参考修改而来, 去掉了默认样式, 引入了bootstrap和自定义css+js文件;
+</p>
 
-
-<div id="outline-container-orgfa99762" class="outline-2">
-<h2 id="orgfa99762">遗留问题</h2>
+<div class="figure">
+<p><img src="./assets/images/博客编辑流程.png" alt="博客编辑流程.png" />
+</p>
 </div>
-<div id="outline-container-orgca80e9a" class="outline-2">
-<h2 id="orgca80e9a">参考</h2>
-<div class="outline-text-2" id="text-orgca80e9a">
+
+
+
+<div id="outline-container-org1d7d9e0" class="outline-2">
+<h2 id="org1d7d9e0">遗留问题</h2>
+<div class="outline-text-2" id="text-org1d7d9e0">
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> 锚点链接不正确可能导致发布失败</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgcbb13d6" class="outline-2">
+<h2 id="orgcbb13d6">参考</h2>
+<div class="outline-text-2" id="text-orgcbb13d6">
 <ol class="org-ol">
 <li>bootstrapcdn: <a href="https://www.bootstrapcdn.com">https://www.bootstrapcdn.com</a></li>
 <li>bootstrapcdn(国内):<a href="https://www.bootcdn.cn">https://www.bootcdn.cn</a></li>
@@ -133,7 +150,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-05-24 五 20:21</p>
+<p class="date">Created: 2019-05-24 五 20:40</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
