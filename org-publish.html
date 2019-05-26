@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
 <head>
-<!-- 2019-05-26 日 17:24 -->
+<!-- 2019-05-26 日 17:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>静态页面生成调教</title>
@@ -84,23 +84,37 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdef32a6">1. 2019-05-24 开始使用</a></li>
-<li><a href="#org40562ff">2. 使用</a>
+<li><a href="#org5e32642">1. 2019-05-26 增加照片发布</a></li>
+<li><a href="#orgdef32a6">2. 2019-05-24 开始使用</a></li>
+<li><a href="#org40562ff">3. 使用</a>
 <ul>
-<li><a href="#org2577482">2.1. 目录结构</a></li>
-<li><a href="#orgb0492ed">2.2. 编辑流程</a></li>
-<li><a href="#org0c63955">2.3. 调整</a></li>
+<li><a href="#org2577482">3.1. 目录结构</a></li>
+<li><a href="#orgb0492ed">3.2. 编辑流程</a></li>
+<li><a href="#org0c63955">3.3. 调整</a></li>
 </ul>
 </li>
-<li><a href="#org1d7d9e0">3. 遗留问题</a></li>
-<li><a href="#orgcbb13d6">4. 参考</a></li>
+<li><a href="#org1d7d9e0">4. 遗留问题</a></li>
+<li><a href="#orgcbb13d6">5. 参考</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgdef32a6" class="outline-2">
-<h2 id="orgdef32a6"><span class="section-number-2">1</span> 2019-05-24 开始使用</h2>
+<div id="outline-container-org5e32642" class="outline-2">
+<h2 id="org5e32642"><span class="section-number-2">1</span> 2019-05-26 增加照片发布</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+通过wechat, telegram转发照片, 然后在发布.<br />
+花了一点时间在调整页面上是因为不想换行. 也许可以做个telegram bot自动发布?<br />
+去掉了cdn的js和css, 因为忽然使用vpn无法访问了.<br />
+考虑到后续可能照片较多, 就没有放在source而是只放在publish目录里, 但是我路径写错导致无法发布:<br />
+<b>发现publish时对link的检测并不是针对 source目录, 而是针对publish目录</b><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdef32a6" class="outline-2">
+<h2 id="orgdef32a6"><span class="section-number-2">2</span> 2019-05-24 开始使用</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 今天重新捡起了静态发布.<br />
 </p>
@@ -120,12 +134,12 @@ for the JavaScript code in this tag.
 
 
 <div id="outline-container-org40562ff" class="outline-2">
-<h2 id="org40562ff"><span class="section-number-2">2</span> 使用</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org40562ff"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-org2577482" class="outline-3">
-<h3 id="org2577482"><span class="section-number-3">2.1</span> 目录结构</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="org2577482"><span class="section-number-3">3.1</span> 目录结构</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 ├── publish 发布目录, 需要提交到github上<br />
 │   └── assets<br />
@@ -141,8 +155,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="outline-container-orgb0492ed" class="outline-3">
-<h3 id="orgb0492ed"><span class="section-number-3">2.2</span> 编辑流程</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="orgb0492ed"><span class="section-number-3">3.2</span> 编辑流程</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 <img src="./assets/images/博客编辑流程.png" alt="博客编辑流程.png" /><br />
 相对而言比较简单, 更重要的是没那么多依赖.<br />
@@ -151,8 +165,8 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-org0c63955" class="outline-3">
-<h3 id="org0c63955"><span class="section-number-3">2.3</span> 调整</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org0c63955"><span class="section-number-3">3.3</span> 调整</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 需要的包: ox-publish, htmlize<br />
 配置文件根据参考修改而来, 去掉了默认样式<br />
@@ -164,9 +178,10 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
+
 <div id="outline-container-org1d7d9e0" class="outline-2">
-<h2 id="org1d7d9e0"><span class="section-number-2">3</span> 遗留问题</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org1d7d9e0"><span class="section-number-2">4</span> 遗留问题</h2>
+<div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li class="off"><code>[&#xa0;]</code> 锚点链接不正确可能导致发布失败;<br /></li>
 <li class="off"><code>[&#xa0;]</code> 因为要检查文件是否被修改, 在数量较多(超过200个)时会导致发布变慢;<br /></li>
@@ -178,8 +193,8 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-orgcbb13d6" class="outline-2">
-<h2 id="orgcbb13d6"><span class="section-number-2">4</span> 参考</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orgcbb13d6"><span class="section-number-2">5</span> 参考</h2>
+<div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>bootstrapcdn: <a href="https://www.bootstrapcdn.com">https://www.bootstrapcdn.com</a><br /></li>
 <li>bootstrapcdn(国内):<a href="https://www.bootcdn.cn">https://www.bootcdn.cn</a><br /></li>
@@ -194,7 +209,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2019-05-26 日 17:24</p>
+<p class="date">Created: 2019-05-26 日 17:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
