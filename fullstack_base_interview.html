@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head>
+<!-- 2019-06-12 三 09:06 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>全栈基础面试题 - Hello, 42</title>
+<meta name="generator" content="Org mode" />
+<meta name="description" content="有关开始, 过程, 和结束的零散碎片; 问题与答案的混合;"
+ />
+<meta name="keywords" content="朝花燃尽" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no" />
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no,email=no"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="browsermode" content="application"/>
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/all.css" />
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/all.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">全栈基础面试题 - Hello, 42</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgab8e7fd">1. ---------------&#x2013;&#x2014;MySQL------------------------------</a>
+<ul>
+<li><a href="#org177bc50">1.1. MySQL中myisam与innodb的区别</a></li>
+<li><a href="#orga572faf">1.2. TRUNCATE和DELETE的区别是什么？</a></li>
+<li><a href="#orgb4d0476">1.3. 什么是触发器，MySQL中都有哪些触发器？</a></li>
+<li><a href="#orgbe52b14">1.4. 如何查询第n高的工资？</a></li>
+<li><a href="#org0af9e80">1.5. MySQL锁机制</a></li>
+<li><a href="#org58ec46f">1.6. 索引</a></li>
+<li><a href="#org51512f7">1.7. 表操作命令：create、alter、drop。    数据操作指令：select、insert、delete、update</a></li>
+<li><a href="#org0d99b0c">1.8. 2019-03-09 删除某一字段相同的重复数据</a></li>
+</ul>
+</li>
+<li><a href="#orgf3b034d">2. ---------------&#x2013;&#x2014;Java-----------------------------</a>
+<ul>
+<li><a href="#org3b404a5">2.1. 所知道的页面重定向方式?</a></li>
+<li><a href="#orgfb6b6a6">2.2. transient变量有什么特点?</a></li>
+<li><a href="#org61d9201">2.3. Java里的传引用和传值的区别是什么？</a></li>
+<li><a href="#org92d807f">2.4. 一个".java"源文件中是否可以包括多个类（不是内部类）？有什么限制？</a></li>
+<li><a href="#org9e5cced">2.5. &amp;和&amp;&amp;的区别。短路?</a></li>
+<li><a href="#org3bd6fd2">2.6. 在JAVA中如何跳出当前的多重嵌套循环？</a></li>
+<li><a href="#org2df4a59">2.7. JAVA的跨平台原理</a></li>
+<li><a href="#orgce3a6d1">2.8. JAVA面向对象的特征</a></li>
+<li><a href="#org08255ab">2.9. String、StringBuffer、StringBuilder的区别；</a></li>
+<li><a href="#org6c6a8f6">2.10. HashMap、LinkedHashMap、TreeMap的区别；</a></li>
+<li><a href="#orgb4028ad">2.11. ArrayList、LinkedList、vector 的区别；</a></li>
+<li><a href="#org5423a07">2.12. Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?</a></li>
+<li><a href="#orge557a44">2.13. 抽象类与接口（interface）的区别</a></li>
+<li><a href="#org51880f4">2.14. 多线程是什么？用什么实现？</a></li>
+<li><a href="#org6f241fd">2.15. Math.round(11.5)等於多少? Math.round(-11.5)等於多少?</a></li>
+<li><a href="#orgbc5e069">2.16. 2乘以8,如何写最有效率?</a></li>
+<li><a href="#org08405e0">2.17. 请设计一个一百亿的计算器?</a></li>
+</ul>
+</li>
+<li><a href="#orgdd5310a">3. ---------------&#x2013;&#x2014;JavaScript--------------------------</a>
+<ul>
+<li><a href="#orgc51bb30">3.1. JS中如何检测一个变量是一个String类型？</a></li>
+<li><a href="#org9c4dc00">3.2. JS去除字符串空格？</a></li>
+<li><a href="#orgf275920">3.3. 原生JS怎样添加、移除、移动、复制、创建和查找节点？</a></li>
+<li><a href="#org443f1e7">3.4. this的作用和典型应用</a></li>
+<li><a href="#org4867cbf">3.5. 类型比较? typeof与instanceof用法？</a></li>
+<li><a href="#orgc2c99af">3.6. jQuery 库中的 $() 是什么？</a></li>
+<li><a href="#org77fa1de">3.7. $(this) 和 this 关键字在 jQuery 中有何不同？</a></li>
+<li><a href="#org1e5a37f">3.8. $(document).ready()方法和window.onload有什么区别？</a></li>
+<li><a href="#org1712141">3.9. JQuery如何绑定事件?</a></li>
+<li><a href="#org3d61d0a">3.10. jquery怎么添加,移除标签属性？</a></li>
+<li><a href="#org6d4cec4">3.11. 如何理解闭包？</a></li>
+<li><a href="#orgcdc3bc6">3.12. 谈谈垃圾回收机制方式及内存管理</a></li>
+</ul>
+</li>
+<li><a href="#org0ea434b">4. ---------------&#x2013;&#x2014;前端-------------------------</a>
+<ul>
+<li><a href="#org34447da">4.1. 盒子模型？</a></li>
+<li><a href="#orga6e78a6">4.2. 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li>
+<li><a href="#org1af8dca">4.3. 同步和异步的区别</a></li>
+<li><a href="#org03b447f">4.4. sessionStorage 、localStorage 和 cookie 之间的区别</a></li>
+<li><a href="#org4b91edb">4.5. Ajax的优缺点及工作原理？</a></li>
+<li><a href="#org1b65a16">4.6. 规避javascript多人开发函数重名?</a></li>
+<li><a href="#org1b410ae">4.7. 请说出三种减低页面加载时间的方法</a></li>
+<li><a href="#org800abc5">4.8. 前端开发，如何提高页面性能优化？</a></li>
+<li><a href="#org80c3e8e">4.9. 浏览器是如何渲染页面的？</a></li>
+<li><a href="#org51b9cdb">4.10. 简述一下src与href的区别</a></li>
+</ul>
+</li>
+<li><a href="#org747beca">5. ---------------&#x2013;&#x2014;架构---------------------------</a>
+<ul>
+<li><a href="#orgf052336">5.1. 如何搭建一个高可用系统</a></li>
+<li><a href="#org969909a">5.2. 哪些设计模式可以增加系统的可扩展性</a></li>
+<li><a href="#org7ba983f">5.3. 介绍设计模式，如模板模式，命令模式，策略模式，适配器模式、桥接模式、装饰模式，观察者模式，状态模式，访问者模式。</a></li>
+<li><a href="#org7997c3d">5.4. 抽象能力，怎么提高研发效率。</a></li>
+<li><a href="#orgb46dd57">5.5. 什么是高内聚低耦合，请举例子如何实现</a></li>
+<li><a href="#org8b9ce5d">5.6. 什么情况用接口，什么情况用消息</a></li>
+<li><a href="#orgf5aac94">5.7. 如果AB两个系统互相依赖，如何解除依赖</a></li>
+<li><a href="#org3d5ef55">5.8. 如何写一篇设计文档，目录是什么</a></li>
+<li><a href="#org5f8eaae">5.9. 什么场景应该拆分系统，什么场景应该合并系统</a></li>
+<li><a href="#org415e45c">5.10. 系统和模块的区别，分别在什么场景下使用</a></li>
+</ul>
+</li>
+<li><a href="#orgb79aa75">6. reference</a>
+<ul>
+<li><a href="#org9ae9e3d">6.1. https://www.bilibili.com/read/cv1339714/</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-orgab8e7fd" class="outline-2">
+<h2 id="orgab8e7fd"><span class="section-number-2">1</span> ---------------&#x2013;&#x2014;MySQL------------------------------</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org177bc50" class="outline-3">
+<h3 id="org177bc50"><span class="section-number-3">1.1</span> MySQL中myisam与innodb的区别</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+nnoDB支持事务，MyISAM不支持；<br />
+</p>
+
+<p>
+InnoDB数据存储在共享表空间，MyISAM数据存储在文件中；<br />
+</p>
+
+<p>
+InnoDB支持行级锁，MyISAM只支持表锁；<br />
+</p>
+
+<p>
+InnoDB支持崩溃后的恢复，MyISAM不支持；<br />
+</p>
+
+<p>
+InnoDB支持外键，MyISAM不支持；<br />
+</p>
+
+<p>
+InnoDB不支持全文索引，MyISAM支持全文索引；<br />
+</p>
+
+<p>
+1、InnoDB存储引擎<br />
+</p>
+
+<p>
+默认事务型引擎，最重要最广泛的存储引擎，性能非常优秀。<br />
+</p>
+
+<p>
+数据存储在共享表空间，可以通过配置分开。也就是多个表和索引都存储在一个表空间中，可以通过配置文件改变此配置。<br />
+</p>
+
+<p>
+对主键查询的性能高于其他类型的存储引擎。<br />
+</p>
+
+<p>
+内部做了很多优化，从磁盘读取数据时会自动构建hash索引，插入数据时自动构建插入缓冲区。<br />
+</p>
+
+<p>
+通过一些机制和工具支持真正的热备份。<br />
+</p>
+
+<p>
+支持崩溃后的安全恢复。<br />
+</p>
+
+<p>
+支持行级锁。<br />
+</p>
+
+<p>
+支持外键。<br />
+</p>
+
+<p>
+2、MyISAM存储引擎<br />
+</p>
+
+<p>
+拥有全文索引、压缩、空间函数。<br />
+</p>
+
+<p>
+不支持事务和行级锁、不支持崩溃后的安全恢复。<br />
+</p>
+
+<p>
+表存储在两个文件，MYD和MYI。<br />
+</p>
+
+<p>
+设计简单，某些场景下性能很好，例如获取整个表有多少条数据，性能很高。<br />
+</p>
+
+<p>
+全文索引不是很常用，不如使用外部的ElasticSearch或Lucene。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga572faf" class="outline-3">
+<h3 id="orga572faf"><span class="section-number-3">1.2</span> TRUNCATE和DELETE的区别是什么？</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+DELETE命令从一个表中删除某一行，或多行，TRUNCATE命令永久地从表中删除每一行。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb4d0476" class="outline-3">
+<h3 id="orgb4d0476"><span class="section-number-3">1.3</span> 什么是触发器，MySQL中都有哪些触发器？</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+触发器是指一段代码，当触发某个事件时，自动执行这些代码。在MySQL数据库中有如下六种触发器：<br />
+</p>
+
+<p>
+1、Before Insert<br />
+</p>
+
+<p>
+2、After Insert<br />
+</p>
+
+<p>
+3、Before Update<br />
+</p>
+
+<p>
+4、After Update<br />
+</p>
+
+<p>
+5、Before Delete<br />
+</p>
+
+<p>
+6、After Delete<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe52b14" class="outline-3">
+<h3 id="orgbe52b14"><span class="section-number-3">1.4</span> 如何查询第n高的工资？</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+SELECT DISTINCT(salary) from employee ORDER BY salary DESC LIMIT n-1,1<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0af9e80" class="outline-3">
+<h3 id="org0af9e80"><span class="section-number-3">1.5</span> MySQL锁机制</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+表锁是日常开发中的常见问题，因此也是面试当中最常见的考察点，当多个查询同一时刻进行数据修改时，就会产生并发控制的问题。共享锁和排他锁，就是读锁和写锁。<br />
+</p>
+
+<p>
+共享锁，不堵塞，多个用户可以同时读一个资源，互不干扰。<br />
+</p>
+
+<p>
+排他锁，一个写锁会阻塞其他的读锁和写锁，这样可以只允许一个用户进行写入，防止其他用户读取正在写入的资源。<br />
+</p>
+
+<p>
+锁的粒度<br />
+</p>
+
+<p>
+表锁，系统开销最小，会锁定整张表，MyIsam使用表锁。<br />
+</p>
+
+<p>
+行锁，最大程度的支持并发处理，但是也带来了最大的锁开销，InnoDB使用行锁。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58ec46f" class="outline-3">
+<h3 id="org58ec46f"><span class="section-number-3">1.6</span> 索引</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+索引的基础<br />
+</p>
+
+<p>
+索引类似于书籍的目录，要想找到一本数的某个特定主题，需要先查找书的目录，定位对应的页码<br />
+</p>
+
+<p>
+存储引擎使用类似的方式进行数据查询，先去索引当中找到对应的值，然后根据匹配的索引找到对应的数据行。<br />
+</p>
+
+<p>
+创建索引的语法：<br />
+</p>
+
+<p>
+首先创建一个表：create table t1 (id int primary key,username varchar(20),password varchar(20));<br />
+</p>
+
+<p>
+创建单个索引的语法：CREATE INDEX 索引名 on 表名（字段名）<br />
+</p>
+
+<p>
+索引名一般是：表名<sub>字段名</sub><br />
+</p>
+
+<p>
+给id创建索引：CREATE INDEX t1<sub>id</sub> on t1(id);<br />
+</p>
+
+<p>
+创建联合索引的语法：CREATE INDEX 索引名 on 表名（字段名1，字段名2）<br />
+</p>
+
+<p>
+给username和password创建联合索引：CREATE index t1<sub>username</sub><sub>password</sub> ON t1(username,password)<br />
+</p>
+
+<p>
+其中index还可以替换成unique，primary key，分别代表唯一索引和主键索引<br />
+</p>
+
+<p>
+删除索引：DROP INDEX t1<sub>username</sub><sub>password</sub> ON t1<br />
+</p>
+
+<p>
+索引对性能的影响：<br />
+</p>
+
+<p>
+大大减少服务器需要扫描的数据量。<br />
+</p>
+
+<p>
+帮助服务器避免排序和临时表。<br />
+</p>
+
+<p>
+将随机I/O变顺序I/O。<br />
+</p>
+
+<p>
+大大提高查询速度。<br />
+</p>
+
+<p>
+降低写的速度（不良影响）。<br />
+</p>
+
+<p>
+磁盘占用（不良影响）。<br />
+</p>
+
+<p>
+索引的使用场景：<br />
+</p>
+
+<p>
+对于非常小的表，大部分情况下全表扫描效率更高。<br />
+</p>
+
+<p>
+中到大型表，索引非常有效。<br />
+</p>
+
+<p>
+特大型的表，建立和使用索引的代价会随之增大，可以使用分区技术来解决。<br />
+</p>
+
+<p>
+索引的类型：索引很多种类型，是在MySQL的存储引擎实现的。<br />
+</p>
+
+<p>
+普通索引：最基本的索引，没有任何约束限制。<br />
+</p>
+
+<p>
+唯一索引：和普通索引类似，但是具有唯一性约束。<br />
+</p>
+
+<p>
+主键索引：特殊的唯一索引，不允许有空值。<br />
+</p>
+
+<p>
+索引的区别：-一个表只能有一个主键索引，但是可以有多个唯一索引。<br />
+</p>
+
+<p>
+主键索引一定是唯一索引，唯一索引不是主键索引。<br />
+</p>
+
+<p>
+主键可以与外键构成参照完整性约束，防止数据不一致。<br />
+</p>
+
+<p>
+联合索引：将多个列组合在一起创建索引，可以覆盖多个列。（也叫复合索引，组合索引）<br />
+</p>
+
+<p>
+外键索引：只有InnoDB类型的表才可以使用外键索引，保证数据的一致性、完整性、和实现级联操作（基本不用）。<br />
+</p>
+
+<p>
+全文索引：MySQL自带的全文索引只能用于MyISAM，并且只能对英文进行全文检索 （基本不用）<br />
+</p>
+
+<p>
+MySQL索引的创建原则<br />
+</p>
+
+<p>
+最适合创建索引的列是出现在WHERE或ON子句中的列，或连接子句中的列而不是出现在SELECT关键字后的列。<br />
+</p>
+
+<p>
+索引列的基数越大，数据区分度越高，索引的效果越好。<br />
+</p>
+
+<p>
+对于字符串进行索引，应该制定一个前缀长度，可以节省大量的索引空间。<br />
+</p>
+
+<p>
+根据情况创建联合索引，联合索引可以提高查询效率。<br />
+</p>
+
+<p>
+避免创建过多的索引，索引会额外占用磁盘空间，降低写操作效率。<br />
+</p>
+
+<p>
+主键尽可能选择较短的数据类型，可以有效减少索引的磁盘占用提高查询效率。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51512f7" class="outline-3">
+<h3 id="org51512f7"><span class="section-number-3">1.7</span> 表操作命令：create、alter、drop。    数据操作指令：select、insert、delete、update</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+select 表名 from &#x2026; where &#x2026;<br />
+</p>
+
+<p>
+insert into table values()<br />
+</p>
+
+<p>
+update 表名 set &#x2026;<br />
+</p>
+
+<p>
+delete from 表名 where &#x2026;<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0d99b0c" class="outline-3">
+<h3 id="org0d99b0c"><span class="section-number-3">1.8</span> 2019-03-09 删除某一字段相同的重复数据</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+<b>不想重复的数据,最好使用唯一索引做硬性限制</b><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #8D8D84; font-style: italic;">-- url&#23383;&#27573;&#37325;&#22797;&#30340;&#35760;&#24405;&#21487;&#20197;&#29992;&#27492;&#21024;&#38500;, &#27880;&#24847;&#22914;&#26524;&#25968;&#25454;&#36739;&#22810;, &#20250;&#27604;&#36739;&#24930;</span>
+<span style="color: #0000FF;">DELETE</span> t1 <span style="color: #0000FF;">FROM</span> bookmarks t1
+        <span style="color: #0000FF;">INNER</span> <span style="color: #0000FF;">JOIN</span>
+    bookmarks t2
+<span style="color: #0000FF;">WHERE</span>
+    t1.id_key &lt; t2.id_key <span style="color: #0000FF;">AND</span> t1.url = t2.url;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf3b034d" class="outline-2">
+<h2 id="orgf3b034d"><span class="section-number-2">2</span> ---------------&#x2013;&#x2014;Java-----------------------------</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3b404a5" class="outline-3">
+<h3 id="org3b404a5"><span class="section-number-3">2.1</span> 所知道的页面重定向方式?</h3>
+</div>
+<div id="outline-container-orgfb6b6a6" class="outline-3">
+<h3 id="orgfb6b6a6"><span class="section-number-3">2.2</span> transient变量有什么特点?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+transient变量不会进行序列化。例如一个实现Serializable接口的类在序列化到ObjectStream的时候，transient类型的变量不会被写入流中，同时，反序列化回来的时候，对应变量的值为null。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org61d9201" class="outline-3">
+<h3 id="org61d9201"><span class="section-number-3">2.3</span> Java里的传引用和传值的区别是什么？</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+传引用是指传递的是地址而不是值本身，传值则是传递值的一份拷贝。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org92d807f" class="outline-3">
+<h3 id="org92d807f"><span class="section-number-3">2.4</span> 一个".java"源文件中是否可以包括多个类（不是内部类）？有什么限制？</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9e5cced" class="outline-3">
+<h3 id="org9e5cced"><span class="section-number-3">2.5</span> &amp;和&amp;&amp;的区别。短路?</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一方为false，则结果为false。<br />
+</p>
+
+<p>
+&amp;&amp;还具有短路的功能，即如果第一个表达式为false，则不再计算第二个表达式，例如，对于if(str != null&amp;&amp; !str.equals(“”))表达式，当str为null时，后面的表达式不会执行，所以不会出现NullPointerException如果将&amp;&amp;改为&amp;，则会抛出NullPointerException异常。If(x==33 &amp;++y&gt;0) y会增长，If(x==33 &amp;&amp; ++y&gt;0)不会增长<br />
+</p>
+
+<p>
+&amp;还可以用作位运算符，当&amp;操作符两边的表达式不是boolean类型时，&amp;表示按位与操作，我们通常使用0x0f来与一个整数进行&amp;运算，来获取该整数的最低4个bit位，例如，0x31 &amp; 0x0f的结果为0x01。<br />
+</p>
+
+<p>
+备注：这道题先说两者的共同点，再说出&amp;&amp;和&amp;的特殊之处，并列举一些经典的例子来表明自己理解透彻深入、实际经验丰富。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3bd6fd2" class="outline-3">
+<h3 id="org3bd6fd2"><span class="section-number-3">2.6</span> 在JAVA中如何跳出当前的多重嵌套循环？</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+在Java中，要想跳出多重循环，可以在外面的循环语句前定义一个标号，然后在里层循环体的代码中使用带有标号的break语句，即可跳出外层循环。例如，<br />
+</p>
+
+<p>
+ok:<br />
+</p>
+
+<p>
+for(int i=0;i&lt;10;i++)     {<br />
+</p>
+
+<p>
+for(int j=0;j&lt;10;j++)            {<br />
+</p>
+
+<p>
+System.out.println(“i=” + i + “,j=” + j);<br />
+</p>
+
+<p>
+if(j == 5) break ok;<br />
+</p>
+
+<p>
+}<br />
+</p>
+
+<p>
+}<br />
+</p>
+
+<p>
+另外，我个人通常并不使用标号这种方式，而是让外层的循环条件表达式的结果可以受到里层循环体代码的控制，例如，要在二维数组中查找到某个数字。<br />
+</p>
+
+<p>
+int arr[][] ={{1,2,3},{4,5,6,7},{9}};<br />
+</p>
+
+<p>
+boolean found = false;<br />
+</p>
+
+<p>
+for(int i=0;i&lt;arr.length&amp;&amp; !found;i++)       {<br />
+</p>
+
+<p>
+for(int j=0;j&lt;arr[i].length;j++){<br />
+</p>
+
+<p>
+System.out.println(“i=” + i + “,j=” + j);<br />
+</p>
+
+<p>
+if(arr[i][j]  ==5) {<br />
+</p>
+
+<p>
+found = true;<br />
+</p>
+
+<p>
+break;<br />
+</p>
+
+<p>
+}<br />
+</p>
+
+<p>
+}<br />
+</p>
+
+<p>
+}<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2df4a59" class="outline-3">
+<h3 id="org2df4a59"><span class="section-number-3">2.7</span> JAVA的跨平台原理</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+JVM也是一个软件，不同的平台有不同的版本。我们编写的Java源码，编译后会生成一种 .class 文件，称为字节码文件。Java虚拟机就是负责将字节码文件翻译成特定平台下的机器码然后运行。也就是说，只要在不同平台上安装对应的JVM，就可以运行字节码文件，运行我们编写的Java程序。<br />
+</p>
+
+<p>
+而这个过程中，我们编写的Java程序没有做任何改变，仅仅是通过JVM这一”中间层“，就能在不同平台上运行，真正实现了”一次编译，到处运行“的目的。<br />
+</p>
+
+<p>
+JVM是一个”桥梁“，是一个”中间件“，是实现跨平台的关键，Java代码首先被编译成字节码文件，再由JVM将字节码文件翻译成机器语言，从而达到运行Java程序的目的。<br />
+</p>
+
+<p>
+注意：编译的结果不是生成机器码，而是生成字节码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行。不同平台下编译生成的字节码是一样的，但是由JVM翻译成的机器码却不一样。<br />
+</p>
+
+<p>
+所以，运行Java程序必须有JVM的支持，因为编译的结果不是机器码，必须要经过JVM的再次翻译才能执行。即使你将Java程序打包成可执行文件（例如 .exe），仍然需要JVM的支持。<br />
+</p>
+
+<p>
+注意：跨平台的是Java程序，不是JVM。JVM是用C/C++开发的，是编译后的机器码，不能跨平台，不同平台下需要安装不同版本的JVM。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgce3a6d1" class="outline-3">
+<h3 id="orgce3a6d1"><span class="section-number-3">2.8</span> JAVA面向对象的特征</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+面向对象是基于万物皆对象这个观点. 把一个对象抽象成类,具体上就是把一个对象的静态特征和动态特征抽象成属性和方法,也就是把一类事物的算法和数据结构封装在一个类之中,程序就是多个对象和互相之间的通信组成的。<br />
+</p>
+
+<p>
+比如把一个人看成一个对象，这个人就会有他的属性和行为；他有手、脚、嘴巴等就是他的属性，或者他会说话、会走路、会吃饭就是行为，同理我们也可以把这些都看成对象，所以一个对象是可以由多个对象组成的。<br />
+</p>
+
+<p>
+面向对象具有封装性、继承性、多态性。封装就是隐蔽了对象内部不需要暴露的细节，使得内部细节的变动跟外界脱离，只依靠接口进行通信；即不用管这个方法是怎么实现的，只要知道他可以实现这个功能。封装性降低了编程的复杂性. 通过继承使得新建一个类变得容易，一个类继承了父类，则父类所有的非私有的方法和公用属性可以被这个类所调用。 而继承和实现接口所产生的多态，使得不同的类所产生的对象能够对相同的消息作出不同的反应，即在实现接口的情况下，同一个方法里的行为不同，极大地提高了代码的通用性.。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org08255ab" class="outline-3">
+<h3 id="org08255ab"><span class="section-number-3">2.9</span> String、StringBuffer、StringBuilder的区别；</h3>
+<div class="outline-text-3" id="text-2-9">
+<ol class="org-ol">
+<li>String对象是不可改变的。<br /></li>
+<li>如果要修改字符串而不创建新的对象，则可以使用 StringBuilder 类。例如，当在一个循环中将许多字符串连接在一起时，使用 StringBuilder 类可以提升性能。<br /></li>
+<li>由于 String 的值一旦创建就不能再修改，所以称它是恒定的。看似能修改 String 的方法实际上只是返回一个包含修改内容的新 String。<br /></li>
+
+<li>StringBuffer可改变的Unicode字符序列，允许并发操作，是线程安全的。<br /></li>
+<li>StringBuilder：可改变的Unicode字符序列操作同StringBuffer，只是不支持并发操作，非线程安全的 。<br /></li>
+<li>不考虑线程安全前提下，StringBuilder性能最高，StringBuffer次之，String比较差。  为什么StringBuffer的性能比String高？主要原因在于String类是不可变类，任何对String引用指向的字符串作出的修改都会导致生成新的字符串（对象），而对StringBuffer的修改则不会导致新对象的产生。<br /></li>
+</ol>
+<p>
+那么为什么StringBuilder的性能比StringBuffer的高呢？这则与线程安全有关。StringBuilder是线程非安全的。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org6c6a8f6" class="outline-3">
+<h3 id="org6c6a8f6"><span class="section-number-3">2.10</span> HashMap、LinkedHashMap、TreeMap的区别；</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+HashMap,LinkedHashMap,TreeMap都属于Map<br />
+Map 主要用于存储键(key)值(value)对，根据键得到值，因此键不允许键重复,但允许值重复。<br />
+HashMap 是一个最常用的Map,它根据键的HashCode 值存储数据,根据键可以直接获取它的值，具有很快的访问速度。HashMap最多只允许一条记录的键为Null;允许多条记录的值为Null;HashMap不支持线程的同步，即任一时刻可以有多个线程同时写HashMap;可能会导致数据的不一致。如果需要同步，可以用Collections的synchronizedMap方法使HashMap具有同步的能力。<br />
+LinkedHashMap 也是一个HashMap,但是内部维持了一个双向链表,可以保持顺序；<br />
+TreeMap 不仅可以保持顺序，而且可以用于排序；<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb4028ad" class="outline-3">
+<h3 id="orgb4028ad"><span class="section-number-3">2.11</span> ArrayList、LinkedList、vector 的区别；</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+一、同步性<br />
+ArrayList,LinkedList是不同步的，而Vestor是同步的。所以如果不要求线程安全的话，可以使用ArrayList或LinkedList，可以节省为同步而耗费的开销。但在多线程的情况下，就得使用Vector。当然，也可以通过一些办法包装ArrayList,LinkedList，使他们也达到同步，但效率可能会有所降低。<br />
+二、数据增长<br />
+从内部实现机制来讲ArrayList和Vector都是使用Object的数组形式来存储的。<br />
+</p>
+
+<p>
+当你向这两种类型中增加元素的时候，如果元素的数目超出了内部数组的长度它们都需要扩展内部数组的长度，Vector缺省情况下自动增长原来一倍的数组长度；<br />
+</p>
+
+<p>
+ArrayList是原来的50%，所以最后你获得的这个集合所占的空间总是比你实际需要的要大。所以要在集合中保存大量的数据那么使用Vector有一些优势。<br />
+</p>
+
+<p>
+三、检索、插入、删除对象的效率<br />
+ArrayList和Vector中，是用下标来检索一个对象，或在集合的末尾插入、删除一个对象的时间是一样的。但是，如果在集合的其他位置增加或移除元素那么花费的时间会呈线形增长。<br />
+LinkedList中，在插入、删除集合中任何位置的元素所花费的时间都是一样的，但它在查询一个元素的时候比较慢。<br />
+一般大家都知道ArrayList和LinkedList的大致区别：<br />
+      1.ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。<br />
+      2.对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。<br />
+     3.对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5423a07" class="outline-3">
+<h3 id="org5423a07"><span class="section-number-3">2.12</span> Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+Overload是重载的意思，Override是覆盖的意思，也就是重写。<br />
+</p>
+
+<p>
+重载Overload表示同一个类中可以有多个名称相同的方法，但这些方法的参数列表各不相同（即参数个数或类型不同）。<br />
+</p>
+
+<p>
+重写Override表示子类中的方法可以与父类中的某个方法的名称和参数完全相同，通过子类创建的实例对象调用这个方法时，将调用子类中的定义方法，这相当于把父类中定义的那个完全相同的方法给覆盖了，这也是面向对象编程的多态性的一种表现。子类覆盖父类的方法时，只能比父类抛出更少的异常，或者是抛出父类抛出的异常的子异常，因为子类可以解决父类的一些问题，不能比父类有更多的问题。子类方法的访问权限只能比父类的更大，不能更小。如果父类的方法是private类型，那么，子类则不存在覆盖的限制，相当于子类中增加了一个全新的方法。<br />
+</p>
+
+<p>
+至于Overloaded的方法是否可以改变返回值的类型这个问题，要看你倒底想问什么呢？这个题目很模糊。如果几个Overloaded的方法的参数列表不一样，它们的返回者类型当然也可以不一样。但我估计你想问的问题是：如果两个方法的参数列表完全一样，是否可以让它们的返回值不同来实现重载Overload。这是不行的，我们可以用反证法来说明这个问题，因为我们有时候调用一个方法时也可以不定义返回结果变量，即不要关心其返回结果，例如，我们调用map.remove(key)方法时，虽然remove方法有返回值，但是我们通常都不会定义接收返回结果的变量，这时候假设该类中有两个名称和参数列表完全相同的方法，仅仅是返回类型不同，java就无法确定编程者倒底是想调用哪个方法了，因为它无法通过返回结果类型来判断。<br />
+</p>
+
+
+
+<p>
+override可以翻译为覆盖，从字面就可以知道，它是覆盖了一个方法并且对其重写，以求达到不同的作用。对我们来说最熟悉的覆盖就是对接口方法的实现，在接口中一般只是对方法进行了声明，而我们在实现时，就需要实现接口声明的所有方法。除了这个典型的用法以外，我们在继承中也可能会在子类覆盖父类中的方法。在覆盖要注意以下的几点：<br />
+</p>
+
+<p>
+1、覆盖的方法的标志必须要和被覆盖的方法的标志完全匹配，才能达到覆盖的效果；<br />
+</p>
+
+<p>
+2、覆盖的方法的返回值必须和被覆盖的方法的返回一致；<br />
+</p>
+
+<p>
+3、覆盖的方法所抛出的异常必须和被覆盖方法的所抛出的异常一致，或者是其子类；<br />
+</p>
+
+<p>
+4、被覆盖的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖。<br />
+</p>
+
+<p>
+overload对我们来说可能比较熟悉，可以翻译为重载，它是指我们可以定义一些名称相同的方法，通过定义不同的输入参数来区分这些方法，然后再调用时，VM就会根据不同的参数样式，来选择合适的方法执行。在使用重载要注意以下的几点：<br />
+</p>
+
+<p>
+1、在使用重载时只能通过不同的参数样式。例如，不同的参数类型，不同的参数个数，不同的参数顺序（当然，同一方法内的几个参数类型必须不一样，例如可以是fun(int,float)，但是不能为fun(int,int)）；<br />
+</p>
+
+<p>
+2、不能通过访问权限、返回类型、抛出的异常进行重载；<br />
+</p>
+
+<p>
+3、方法的异常类型和数目不会对重载造成影响；<br />
+</p>
+
+<p>
+4、对于继承来说，如果某一方法在父类中是访问权限是priavte，那么就不能在子类对其进行重载，如果定义的话，也只是定义了一个新方法，而不会达到重载的效果。<br />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge557a44" class="outline-3">
+<h3 id="orge557a44"><span class="section-number-3">2.13</span> 抽象类与接口（interface）的区别</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+1.abstract class 在 Java 语言中表示的是一种继承关系，一个类只能使用一次继承关系。但是，一个类却可以实现多个interface。<br />
+</p>
+
+<p>
+　　2.在abstract class 中可以有自己的数据成员，也可以有非abstarct的成员方法，而在interface中，只能够有静态的不能被修改的数据成员（也就是必须是static final的，不过在 interface中一般不定义数据成员），所有的成员方法都是abstract的。<br />
+</p>
+
+<p>
+　　3.abstract class和interface所反映出的设计理念不同。其实abstract class表示的是"is-a"关系，interface表示的是"like-a"关系。<br />
+</p>
+
+<p>
+　　4.实现抽象类和接口的类必须实现其中的所有方法。抽象类中可以有非抽象方法。接口中则不能有实现方法。<br />
+</p>
+
+<p>
+　　5.接口中定义的变量默认是public static final 型，且必须给其初值，所以实现类中不能重新定义，也不能改变其值。<br />
+</p>
+
+<p>
+　　6.抽象类中的变量默认是 friendly 型，其值可以在子类中重新定义，也可以重新赋值。<br />
+</p>
+
+<p>
+　　7.接口中的方法默认都是 public,abstract 类型的。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org51880f4" class="outline-3">
+<h3 id="org51880f4"><span class="section-number-3">2.14</span> 多线程是什么？用什么实现？</h3>
+<div class="outline-text-3" id="text-2-14">
+<p>
+多线程是为了同步完成多项任务，不是为了提高运行效率，而是为了提高资源使用效率来提高系统的效率。线程是在同一时间需要完成多项任务的时候实现的。如：火车是一个进程，而车厢就是线程，车厢脱离了火车是不能开动的，同理可以由多个车厢，则一个进程是有多个线程来提高效率的。<br />
+</p>
+
+<p>
+在JAVA中，要开始一个线程，有两种方式。一是直接调用Thread实例的start()方法，继承Thread类；二是实现Runnable接口，将Runable实例传给一个Thread实例然后调用它的start()方法。<br />
+</p>
+
+<p>
+实现同步也有两种,一种是用同步方法,一种是用同步块， 同步方法就是在方法返回类型后面加上synchronized, 比如:public void synchronized add(){&#x2026;}同步块就是直接写:synchronized (这里写需要同步的对象){&#x2026;}<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org6f241fd" class="outline-3">
+<h3 id="org6f241fd"><span class="section-number-3">2.15</span> Math.round(11.5)等於多少? Math.round(-11.5)等於多少?</h3>
+<div class="outline-text-3" id="text-2-15">
+<p>
+Math类中提供了三个与取整有关的方法：ceil、floor、round，这些方法的作用与它们的英文名称的含义相对应，例如，ceil的英文意义是天花板，该方法就表示向上取整，Math.ceil(11.3)的结果为12,Math.ceil(-11.3)的结果是-11；floor的英文意义是地板，该方法就表示向下取整，Math.ceil(11.6)的结果为11,Math.ceil(-11.6)的结果是-12；最难掌握的是round方法，它表示“四舍五入”，算法为Math.floor(x+0.5)，即将原来的数字加上0.5后再向下取整，所以，Math.round(11.5)的结果为12，Math.round(-11.5)的结果为-11。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc5e069" class="outline-3">
+<h3 id="orgbc5e069"><span class="section-number-3">2.16</span> 2乘以8,如何写最有效率?</h3>
+<div class="outline-text-3" id="text-2-16">
+<p>
+2 &lt;&lt; 3，<br />
+</p>
+
+<p>
+因为将一个数左移n位，就相当于乘以了2的n次方，那么，一个数乘以8只要将其左移3位即可，而位运算cpu直接支持的，效率最高，所以，2乘以8等於几的最效率的方法是2 &lt;&lt; 3。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org08405e0" class="outline-3">
+<h3 id="org08405e0"><span class="section-number-3">2.17</span> 请设计一个一百亿的计算器?</h3>
+<div class="outline-text-3" id="text-2-17">
+<p>
+首先要明白这道题目的考查点是什么，一是大家首先要对计算机原理的底层细节要清楚、要知道加减法的位运算原理和知道计算机中的算术运算会发生越界的情况，二是要具备一定的面向对象的设计思想。<br />
+</p>
+
+<p>
+首先，计算机中用固定数量的几个字节来存储的数值，所以计算机中能够表示的数值是有一定的范围的，为了便于讲解和理解，我们先以byte类型的整数为例，它用1个字节进行存储，表示的最大数值范围为-128到+127。-1在内存中对应的二进制数据为11111111，如果两个-1相加，不考虑Java运算时的类型提升，运算后会产生进位，二进制结果为1,11111110，由于进位后超过了byte类型的存储空间，所以进位部分被舍弃，即最终的结果为11111110，也就是-2，这正好利用溢位的方式实现了负数的运算。-128在内存中对应的二进制数据为10000000，如果两个-128相加，不考虑Java运算时的类型提升，运算后会产生进位，二进制结果为1,00000000，由于进位后超过了byte类型的存储空间，所以进位部分被舍弃，即最终的结果为00000000，也就是0，这样的结果显然不是我们期望的，这说明计算机中的算术运算是会发生越界情况的，两个数值的运算结果不能超过计算机中的该类型的数值范围。由于Java中涉及表达式运算时的类型自动提升，我们无法用byte类型来做演示这种问题和现象的实验，大家可以用下面一个使用整数做实验的例子程序体验一下：<br />
+</p>
+
+<p>
+int a = Integer.MAX<sub>VALUE</sub>;<br />
+</p>
+
+<p>
+int b = Integer.MAX<sub>VALUE</sub>;<br />
+</p>
+
+<p>
+int sum = a + b;<br />
+</p>
+
+<p>
+System.out.println(“a=”+a+”,b=”+b+”,sum=”+sum);<br />
+</p>
+
+
+
+<p>
+先不考虑long类型，由于int的正数范围为2的31次方，表示的最大数值约等于2*1000*1000*1000，也就是20亿的大小，所以，要实现一个一百亿的计算器，我们得自己设计一个类可以用于表示很大的整数，并且提供了与另外一个整数进行加减乘除的功能，大概功能如下：<br />
+</p>
+
+<p>
+（1）这个类内部有两个成员变量，一个表示符号，另一个用字节数组表示数值的二进制数<br />
+</p>
+
+<p>
+（2）有一个构造方法，把一个包含有多位数值的字符串转换到内部的符号和字节数组中<br />
+</p>
+
+<p>
+（3）提供加减乘除的功能<br />
+</p>
+
+<p>
+public class BigInteger{<br />
+</p>
+
+<p>
+int sign;<br />
+</p>
+
+<p>
+byte[] val;<br />
+</p>
+
+<p>
+public Biginteger(String val) {<br />
+</p>
+
+<p>
+sign = ;<br />
+</p>
+
+<p>
+val = ;<br />
+</p>
+
+<p>
+}<br />
+</p>
+
+<p>
+public BigInteger add(BigInteger other)       {<br />
+</p>
+
+
+
+<p>
+}<br />
+</p>
+
+<p>
+public BigInteger subtract(BigInteger other) {<br />
+</p>
+
+
+
+<p>
+}<br />
+</p>
+
+<p>
+public BigInteger multiply(BigInteger other){<br />
+</p>
+
+
+
+<p>
+}<br />
+</p>
+
+<p>
+public BigInteger divide(BigInteger other){<br />
+</p>
+
+
+
+<p>
+}<br />
+</p>
+
+
+
+<p>
+}<br />
+</p>
+
+<p>
+备注：要想写出这个类的完整代码，是非常复杂的，如果有兴趣的话，可以参看jdk中自带的java.math.BigInteger类的源码。面试的人也知道谁都不可能在短时间内写出这个类的完整代码的，他要的是你是否有这方面的概念和意识，他最重要的还是考查你的能力，所以，你不要因为自己无法写出完整的最终结果就放弃答这道题，你要做的就是你比别人写得多，证明你比别人强，你有这方面的思想意识就可以了，毕竟别人可能连题目的意思都看不懂，什么都没写，你要敢于答这道题，即使只答了一部分，那也与那些什么都不懂的人区别出来，拉开了距离，算是矮子中的高个，机会当然就属于你了。另外，答案中的框架代码也很重要，体现了一些面向对象设计的功底，特别是其中的方法命名很专业，用的英文单词很精准，这也是能力、经验、专业性、英语水平等多个方面的体现，会给人留下很好的印象，在编程能力和其他方面条件差不多的情况下，英语好除了可以使你获得更多机会外，薪水可以高出一千元。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd5310a" class="outline-2">
+<h2 id="orgdd5310a"><span class="section-number-2">3</span> ---------------&#x2013;&#x2014;JavaScript--------------------------</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc51bb30" class="outline-3">
+<h3 id="orgc51bb30"><span class="section-number-3">3.1</span> JS中如何检测一个变量是一个String类型？</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+function isString(obj){<br />
+    return typeof(obj) <code>=</code> "string"? true: false;<br />
+    // returntypeof obj <code>=</code> "string"? true: false;<br />
+}<br />
+</p>
+
+
+<p>
+function isString(obj){<br />
+    return obj.constructor <code>=</code> String? true: false;<br />
+}<br />
+</p>
+
+
+<p>
+function isString(obj){<br />
+     return Object.prototype.toString.call(obj) <code>=</code> "[object String]"?true:false;<br />
+}<br />
+如：<br />
+var isstring = isString('xiaoming');<br />
+console.log(isstring);  // true<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9c4dc00" class="outline-3">
+<h3 id="org9c4dc00"><span class="section-number-3">3.2</span> JS去除字符串空格？</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+方法一：使用replace正则匹配的方法<br />
+</p>
+
+<p>
+去除所有空格: str = str.replace(/\s*/g,"");<br />
+</p>
+
+<p>
+去除两头空格: str = str.replace(/^\s*|\s*$/g,"");<br />
+</p>
+
+<p>
+去除左空格： str = str.replace( <i>^\s*</i>, “”);<br />
+</p>
+
+<p>
+去除右空格： str = str.replace(/(\s*$)/g, "");<br />
+</p>
+
+<p>
+str为要去除空格的字符串，实例如下：<br />
+</p>
+
+<p>
+var str = " 23 23 ";<br />
+var str2 = str.replace(<i>\s*/g,"");<br />
+console.log(str2); /</i> 2323<br />
+</p>
+
+<p>
+方法二：使用str.trim()方法<br />
+</p>
+
+<p>
+str.trim()局限性：无法去除中间的空格，实例如下：<br />
+</p>
+
+<p>
+var str = "   xiao  ming   ";<br />
+var str2 = str.trim();<br />
+console.log(str2);   //xiao  ming<br />
+</p>
+
+<p>
+同理，str.trimLeft()，str.trimRight()分别用于去除字符串左右空格。<br />
+方法三：使用jquery,$.trim(str)方法<br />
+</p>
+
+<p>
+$.trim(str)局限性：无法去除中间的空格，实例如下：<br />
+</p>
+
+<p>
+var str = "   xiao  ming   ";<br />
+var str2 = $.trim(str)<br />
+console.log(str2);   //  xiao  ming<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf275920" class="outline-3">
+<h3 id="orgf275920"><span class="section-number-3">3.3</span> 原生JS怎样添加、移除、移动、复制、创建和查找节点？</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+1）创建新节点<br />
+</p>
+
+<p>
+　　createDocumentFragment() //创建一个DOM片段<br />
+　　createElement() //创建一个具体的元素<br />
+　　createTextNode() //创建一个文本节点<br />
+</p>
+
+<p>
+2）添加、移除、替换、插入<br />
+　　appendChild() //添加<br />
+　　removeChild() //移除<br />
+　　replaceChild() //替换<br />
+　　insertBefore() //插入<br />
+</p>
+
+<p>
+3）查找<br />
+　　getElementsByTagName() //通过标签名称<br />
+　　getElementsByName() //通过元素的Name属性的值<br />
+　　getElementById() //通过元素Id，唯一性<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org443f1e7" class="outline-3">
+<h3 id="org443f1e7"><span class="section-number-3">3.4</span> this的作用和典型应用</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+（1）、在html元素事件属性中使用，如：<br />
+</p>
+
+<p>
+&lt;input type=”button” onclick=”showInfo(this);” value=”点击一下”/&gt;<br />
+</p>
+
+<p>
+（2）、构造函数<br />
+</p>
+
+<p>
+function Animal(name, color) {<br />
+　　this.name = name;<br />
+　　this.color = color;<br />
+}<br />
+</p>
+
+<p>
+（3）、input点击，获取值<br />
+</p>
+
+<p>
+&lt;input type="button" id="text" value="点击一下" /&gt;<br />
+&lt;script type="text/javascript"&gt;<br />
+    var btn = document.getElementById("text");<br />
+    btn.onclick = function() {<br />
+        alert(this.value);    //此处的this是按钮元素<br />
+    }<br />
+&lt;/script&gt;<br />
+</p>
+
+<p>
+(4)、apply()/call()求数组最值<br />
+</p>
+
+<p>
+var  numbers = [5, 458 , 120 , -215 ];<br />
+var  maxInNumbers = Math.max.apply(this, numbers);<br />
+console.log(maxInNumbers);  // 458<br />
+var maxInNumbers = Math.max.call(this,5, 458 , 120 , -215);<br />
+console.log(maxInNumbers);  // 458<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4867cbf" class="outline-3">
+<h3 id="org4867cbf"><span class="section-number-3">3.5</span> 类型比较? typeof与instanceof用法？</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+相同点：JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。<br />
+</p>
+
+<p>
+typeof的定义和用法：返回值是一个字符串，用来说明变量的数据类型。<br />
+</p>
+
+<p>
+细节：<br />
+</p>
+
+<p>
+(1)、typeof 一般只能返回如下几个结果：number,boolean,string,function,object,undefined。<br />
+</p>
+
+<p>
+(2)、typeof 来获取一个变量是否存在，如 if(typeof a!="undefined"){alert("ok")}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错。<br />
+</p>
+
+<p>
+(3)、对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。<br />
+</p>
+
+<p>
+Instanceof定义和用法：instanceof 用于判断一个变量是否属于某个对象的实例。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc2c99af" class="outline-3">
+<h3 id="orgc2c99af"><span class="section-number-3">3.6</span> jQuery 库中的 $() 是什么？</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+\(() 函数是 jQuery() 函数的别称。\)() 函数用于将任何对象包裹成 jQuery 对象，接着你就被允许调用定义在 jQuery 对象上的多个不同方法。你可以将一个选择器字符串传入 $() 函数，它会返回一个包含所有匹配的 DOM 元素数组的 jQuery 对象。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org77fa1de" class="outline-3">
+<h3 id="org77fa1de"><span class="section-number-3">3.7</span> $(this) 和 this 关键字在 jQuery 中有何不同？</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。<br />
+</p>
+
+<p>
+而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法，直到它被 $() 函数包裹，例如 $(this)。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1e5a37f" class="outline-3">
+<h3 id="org1e5a37f"><span class="section-number-3">3.8</span> $(document).ready()方法和window.onload有什么区别？</h3>
+<div class="outline-text-3" id="text-3-8">
+<p>
+(1)、window.onload方法是在网页中所有的元素(包括元素的所有关联文件)完全加载到浏览器后才执行的。<br />
+(2)、$(document).ready() 方法可以在DOM载入就绪时就对其进行操纵，并调用执行绑定的函数。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1712141" class="outline-3">
+<h3 id="org1712141"><span class="section-number-3">3.9</span> JQuery如何绑定事件?</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+(1)、bind 【jQuery 1.3之前】<br />
+</p>
+
+<p>
+定义和用法：主要用于给选择到的元素上绑定特定事件类型的监听函数；<br />
+</p>
+
+<p>
+语法：bind(type,[data],function(eventObject))；<br />
+</p>
+
+<p>
+特点：<br />
+</p>
+
+<p>
+　　(1)、适用于页面元素静态绑定。只能给调用它的时候已经存在的元素绑定事件，不能给未来新增的元素绑定事件。<br />
+</p>
+
+<p>
+　　(2)、当页面加载完的时候，你才可以进行bind()，所以可能产生效率问题。<br />
+</p>
+
+<p>
+实例如下：$( "#members li a" ).bind( "click", function( e ) {} );<br />
+(2)、live 【jQuery 1.3之后】<br />
+</p>
+
+<p>
+定义和用法：主要用于给选择到的元素上绑定特定事件类型的监听函数；<br />
+</p>
+
+<p>
+语法：live(type, [data], fn);<br />
+</p>
+
+<p>
+特点：<br />
+</p>
+
+<p>
+　　(1)、live方法并没有将监听器绑定到自己(this)身上，而是绑定到了this.context上了。<br />
+</p>
+
+<p>
+　　(2)、live正是利用了事件委托机制来完成事件的监听处理，把节点的处理委托给了document，新添加的元素不必再绑定一次监听器。<br />
+</p>
+
+<p>
+　　(3)、使用live（）方法但却只能放在直接选择的元素后面，不能在层级比较深，连缀的DOM遍历方法后面使用，即\((“ul”").live...可以，但\)("body").find("ul").live&#x2026;不行；<br />
+</p>
+
+<p>
+实例如下：$( document ).on( "click", "#members li a", function( e ) {} );<br />
+(3)、delegate 【jQuery 1.4.2中引入】<br />
+</p>
+
+<p>
+定义和用法：将监听事件绑定在就近的父级元素上<br />
+</p>
+
+<p>
+语法：delegate(selector,type,[data],fn)<br />
+</p>
+
+<p>
+特点：<br />
+</p>
+
+<p>
+　　(1)、选择就近的父级元素，因为事件可以更快的冒泡上去，能够在第一时间进行处理。<br />
+</p>
+
+<p>
+　　(2)、更精确的小范围使用事件代理，性能优于.live()。可以用在动态添加的元素上。<br />
+</p>
+
+<p>
+实例如下：<br />
+</p>
+
+<p>
+$("#info<sub>table</sub>").delegate("td","click",function(){<i><b>显示更多信息</b></i>});<br />
+</p>
+
+<p>
+$("table").find("#info").delegate("td","click",function(){<i><b>显示更多信息</b></i>});<br />
+(4)、on 【1.7版本整合了之前的三种方式的新事件绑定机制】<br />
+</p>
+
+<p>
+定义和用法：将监听事件绑定到指定元素上。<br />
+</p>
+
+<p>
+语法：on(type,[selector],[data],fn)<br />
+</p>
+
+<p>
+实例如下：$("#info<sub>table</sub>").on("click","td",function(){<i><b>显示更多信息</b></i>});参数的位置写法与delegate不一样。<br />
+</p>
+
+<p>
+说明：on方法是当前JQuery推荐使用的事件绑定方法，附加只运行一次就删除函数的方法是one()。<br />
+</p>
+
+<p>
+总结：.bind(), .live(), .delegate(),.on()分别对应的相反事件为：.unbind(),.die(), .undelegate(),.off()<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3d61d0a" class="outline-3">
+<h3 id="org3d61d0a"><span class="section-number-3">3.10</span> jquery怎么添加,移除标签属性？</h3>
+<div class="outline-text-3" id="text-3-10">
+<p>
+attr,removeattr<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org6d4cec4" class="outline-3">
+<h3 id="org6d4cec4"><span class="section-number-3">3.11</span> 如何理解闭包？</h3>
+<div class="outline-text-3" id="text-3-11">
+<p>
+1、定义和用法：当一个函数的返回值是另外一个函数，而返回的那个函数如果调用了其父函数内部的其它变量，如果返回的这个函数在外部被执行，就产生了闭包。<br />
+</p>
+
+<p>
+2、表现形式：使函数外部能够调用函数内部定义的变量。<br />
+</p>
+
+<p>
+3、实例如下：<br />
+</p>
+
+<p>
+(1)、根据作用域链的规则，底层作用域没有声明的变量，会向上一级找，找到就返回，没找到就一直找，直到window的变量，没有就返回undefined。这里明显count 是函数内部的flag2 的那个count 。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgcdc3bc6" class="outline-3">
+<h3 id="orgcdc3bc6"><span class="section-number-3">3.12</span> 谈谈垃圾回收机制方式及内存管理</h3>
+<div class="outline-text-3" id="text-3-12">
+<p>
+回收机制方式<br />
+</p>
+
+<p>
+1、定义和用法：垃圾回收机制(GC:Garbage Collection),执行环境负责管理代码执行过程中使用的内存。<br />
+</p>
+
+<p>
+2、原理：垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。但是这个过程不是实时的，因为其开销比较大，所以垃圾回收器会按照固定的时间间隔周期性的执行。<br />
+</p>
+
+<p>
+3、实例如下：<br />
+</p>
+
+<p>
+function fn1() {<br />
+    var obj = {name: 'hanzichi', age: 10};<br />
+}<br />
+function fn2() {<br />
+    var obj = {name:'hanzichi', age: 10};<br />
+   return obj;<br />
+}<br />
+var a = fn1();<br />
+var b = fn2();<br />
+</p>
+
+<p>
+fn1中定义的obj为局部变量，而当调用结束后，出了fn1的环境，那么该块内存会被js引擎中的垃圾回收器自动释放；在fn2被调用的过程中，返回的对象被全局变量b所指向，所以该块内存并不会被释放。<br />
+</p>
+
+<p>
+4、垃圾回收策略：标记清除(较为常用)和引用计数。<br />
+</p>
+
+<p>
+标记清除：<br />
+</p>
+
+<p>
+　　定义和用法：当变量进入环境时，将变量标记"进入环境"，当变量离开环境时，标记为："离开环境"。某一个时刻，垃圾回收器会过滤掉环境中的变量，以及被环境变量引用的变量，剩下的就是被视为准备回收的变量。<br />
+</p>
+
+<p>
+　　到目前为止，IE、Firefox、Opera、Chrome、Safari的js实现使用的都是标记清除的垃圾回收策略或类似的策略，只不过垃圾收集的时间间隔互不相同。<br />
+</p>
+
+<p>
+引用计数：<br />
+</p>
+
+<p>
+　　定义和用法：引用计数是跟踪记录每个值被引用的次数。<br />
+</p>
+
+<p>
+　　基本原理：就是变量的引用次数，被引用一次则加1，当这个引用计数为0时，被视为准备回收的对象。<br />
+ 内存管理<br />
+</p>
+
+<p>
+1、什么时候触发垃圾回收？<br />
+</p>
+
+<p>
+垃圾回收器周期性运行，如果分配的内存非常多，那么回收工作也会很艰巨，确定垃圾回收时间间隔就变成了一个值得思考的问题。<br />
+</p>
+
+<p>
+IE6的垃圾回收是根据内存分配量运行的，当环境中的变量，对象，字符串达到一定数量时触发垃圾回收。垃圾回收器一直处于工作状态，严重影响浏览器性能。<br />
+</p>
+
+<p>
+IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例进行动态调整，开始回收工作。<br />
+</p>
+
+<p>
+2、合理的GC方案：(1)、遍历所有可访问的对象; (2)、回收已不可访问的对象。<br />
+</p>
+
+<p>
+3、GC缺陷：(1)、停止响应其他操作；<br />
+</p>
+
+<p>
+4、GC优化策略：(1)、分代回收（Generation GC）;(2)、增量GC<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ea434b" class="outline-2">
+<h2 id="org0ea434b"><span class="section-number-2">4</span> ---------------&#x2013;&#x2014;前端-------------------------</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org34447da" class="outline-3">
+<h3 id="org34447da"><span class="section-number-3">4.1</span> 盒子模型？</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+在网页中，一个元素占有空间的大小由几个部分构成，其中包括元素的内容（content），元素的内边距（padding），元素的边框（border），元素的外边距（margin）四个部分。这四个部分占有的空间中，有的部分可以显示相应的内容，而有的部分只用来分隔相邻的区域或区域。4个部分一起构成了css中元素的盒模型。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga6e78a6" class="outline-3">
+<h3 id="orga6e78a6"><span class="section-number-3">4.2</span> 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+行内元素：a、b、span、img、input、strong、select、label、em、button、textarea<br />
+块级元素：div、ul、li、dl、dt、dd、p、h1-h6、blockquote<br />
+空元素：即系没有内容的HTML元素，例如：br、meta、hr、link、input、img<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1af8dca" class="outline-3">
+<h3 id="org1af8dca"><span class="section-number-3">4.3</span> 同步和异步的区别</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+同步是阻塞模式，异步是非阻塞模式。<br />
+同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去；<br />
+异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org03b447f" class="outline-3">
+<h3 id="org03b447f"><span class="section-number-3">4.4</span> sessionStorage 、localStorage 和 cookie 之间的区别</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+共同点：用于浏览器端存储的缓存数据<br />
+</p>
+
+<p>
+不同点：<br />
+</p>
+
+<p>
+(1)、存储内容是否发送到服务器端：当设置了Cookie后，数据会发送到服务器端，造成一定的宽带浪费；<br />
+</p>
+
+<p>
+web storage,会将数据保存到本地，不会造成宽带浪费；<br />
+</p>
+
+<p>
+(2)、数据存储大小不同：Cookie数据不能超过4K,适用于会话标识；web storage数据存储可以达到5M;<br />
+</p>
+
+<p>
+(3)、数据存储的有效期限不同：cookie只在设置了Cookid过期时间之前一直有效，即使关闭窗口或者浏览器；<br />
+</p>
+
+<p>
+sessionStorage,仅在关闭浏览器之前有效；localStorage,数据存储永久有效；<br />
+</p>
+
+<p>
+(4)、作用域不同：cookie和localStorage是在同源同窗口中都是共享的；sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；<br />
+ 10、Web Storage与Cookie相比存在的优势：<br />
+</p>
+
+<p>
+(1)、存储空间更大：IE8下每个独立的存储空间为10M，其他浏览器实现略有不同，但都比Cookie要大很多。<br />
+</p>
+
+<p>
+(2)、存储内容不会发送到服务器：当设置了Cookie后，Cookie的内容会随着请求一并发送的服务器，这对于本地存储的数据是一种带宽浪费。而Web Storage中的数据则仅仅是存在本地，不会与服务器发生任何交互。<br />
+</p>
+
+<p>
+(3)、更多丰富易用的接口：Web Storage提供了一套更为丰富的接口，如setItem,getItem,removeItem,clear等,使得数据操作更为简便。cookie需要自己封装。<br />
+</p>
+
+<p>
+(4)、独立的存储空间：每个域（包括子域）有独立的存储空间，各个存储空间是完全独立的，因此不会造成数据混乱。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4b91edb" class="outline-3">
+<h3 id="org4b91edb"><span class="section-number-3">4.5</span> Ajax的优缺点及工作原理？</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+定义和用法:<br />
+</p>
+
+<p>
+AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。Ajax 是一种用于创建快速动态网页的技术。Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。<br />
+</p>
+
+<p>
+传统的网页（不使用 Ajax）如果需要更新内容，必须重载整个网页页面。<br />
+优点：<br />
+</p>
+
+<p>
+1.减轻服务器的负担,按需取数据,最大程度的减少冗余请求<br />
+</p>
+
+<p>
+2.局部刷新页面,减少用户心理和实际的等待时间,带来更好的用户体验<br />
+</p>
+
+<p>
+3.基于xml标准化,并被广泛支持,不需安装插件等,进一步促进页面和数据的分离<br />
+缺点：<br />
+</p>
+
+<p>
+1.AJAX大量的使用了javascript和ajax引擎,这些取决于浏览器的支持.在编写的时候考虑对浏览器的兼容性.<br />
+</p>
+
+<p>
+2.AJAX只是局部刷新,所以页面的后退按钮是没有用的.<br />
+</p>
+
+<p>
+3.对流媒体还有移动设备的支持不是太好等<br />
+AJAX的工作原理：<br />
+</p>
+
+<p>
+1.创建ajax对象（XMLHttpRequest/ActiveXObject(Microsoft.XMLHttp)）<br />
+</p>
+
+<p>
+2.判断数据传输方式(GET/POST)<br />
+</p>
+
+<p>
+3.打开链接 open()<br />
+</p>
+
+<p>
+4.发送 send()<br />
+</p>
+
+<p>
+5.当ajax对象完成第四步（onreadystatechange）数据接收完成，判断http响应状态（status）200-300之间或者304（缓存）执行回调函数<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b65a16" class="outline-3">
+<h3 id="org1b65a16"><span class="section-number-3">4.6</span> 规避javascript多人开发函数重名?</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+命名空间<br />
+封闭空间<br />
+js模块化mvc（数据层、表现层、控制层）<br />
+seajs<br />
+变量转换成对象的属性<br />
+对象化<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1b410ae" class="outline-3">
+<h3 id="org1b410ae"><span class="section-number-3">4.7</span> 请说出三种减低页面加载时间的方法</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+压缩css、js文件<br />
+合并js、css文件，减少http请求<br />
+外部js、css文件放在最底下<br />
+减少dom操作，尽可能用变量替代不必要的dom操作<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org800abc5" class="outline-3">
+<h3 id="org800abc5"><span class="section-number-3">4.8</span> 前端开发，如何提高页面性能优化？</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+内容方面：<br />
+1.减少 HTTP 请求 (Make Fewer HTTP Requests)<br />
+2.减少 DOM 元素数量 (Reduce the Number of DOM Elements)<br />
+3.使得 Ajax 可缓存 (Make Ajax Cacheable)<br />
+针对CSS：<br />
+1.把 CSS 放到代码页上端 (Put Stylesheets at the Top)<br />
+2.从页面中剥离 JavaScript 与 CSS (Make JavaScript and CSS External)<br />
+3.精简 JavaScript 与 CSS (Minify JavaScript and CSS)<br />
+4.避免 CSS 表达式 (Avoid CSS Expressions)<br />
+针对JavaScript ：<br />
+</p>
+<ol class="org-ol">
+<li>脚本放到 HTML 代码页底部 (Put Scripts at the Bottom)<br /></li>
+<li>从页面中剥离 JavaScript 与 CSS (Make JavaScript and CSS External)<br /></li>
+<li>精简 JavaScript 与 CSS (Minify JavaScript and CSS)<br /></li>
+<li>移除重复脚本 (Remove Duplicate Scripts)<br /></li>
+</ol>
+<p>
+面向图片(Image)：<br />
+1.优化图片<br />
+2 不要在 HTML 中使用缩放图片<br />
+3 使用恰当的图片格式<br />
+4 使用 CSS Sprites 技巧对图片优化<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org80c3e8e" class="outline-3">
+<h3 id="org80c3e8e"><span class="section-number-3">4.9</span> 浏览器是如何渲染页面的？</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+渲染的流程如下：<br />
+</p>
+
+<p>
+1.解析HTML文件，创建DOM树。<br />
+</p>
+
+<p>
+自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。<br />
+</p>
+
+<p>
+2.解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式；<br />
+</p>
+
+<p>
+3.将CSS与DOM合并，构建渲染树（Render Tree）<br />
+</p>
+
+<p>
+4.布局和绘制，重绘（repaint）和重排（reflow）<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org51b9cdb" class="outline-3">
+<h3 id="org51b9cdb"><span class="section-number-3">4.10</span> 简述一下src与href的区别</h3>
+<div class="outline-text-3" id="text-4-10">
+<p>
+href 是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。<br />
+</p>
+
+<p>
+当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。<br />
+</p>
+
+<p>
+src是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org747beca" class="outline-2">
+<h2 id="org747beca"><span class="section-number-2">5</span> ---------------&#x2013;&#x2014;架构---------------------------</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgf052336" class="outline-3">
+<h3 id="orgf052336"><span class="section-number-3">5.1</span> 如何搭建一个高可用系统</h3>
+</div>
+<div id="outline-container-org969909a" class="outline-3">
+<h3 id="org969909a"><span class="section-number-3">5.2</span> 哪些设计模式可以增加系统的可扩展性</h3>
+</div>
+<div id="outline-container-org7ba983f" class="outline-3">
+<h3 id="org7ba983f"><span class="section-number-3">5.3</span> 介绍设计模式，如模板模式，命令模式，策略模式，适配器模式、桥接模式、装饰模式，观察者模式，状态模式，访问者模式。</h3>
+</div>
+<div id="outline-container-org7997c3d" class="outline-3">
+<h3 id="org7997c3d"><span class="section-number-3">5.4</span> 抽象能力，怎么提高研发效率。</h3>
+</div>
+<div id="outline-container-orgb46dd57" class="outline-3">
+<h3 id="orgb46dd57"><span class="section-number-3">5.5</span> 什么是高内聚低耦合，请举例子如何实现</h3>
+</div>
+<div id="outline-container-org8b9ce5d" class="outline-3">
+<h3 id="org8b9ce5d"><span class="section-number-3">5.6</span> 什么情况用接口，什么情况用消息</h3>
+</div>
+<div id="outline-container-orgf5aac94" class="outline-3">
+<h3 id="orgf5aac94"><span class="section-number-3">5.7</span> 如果AB两个系统互相依赖，如何解除依赖</h3>
+</div>
+<div id="outline-container-org3d5ef55" class="outline-3">
+<h3 id="org3d5ef55"><span class="section-number-3">5.8</span> 如何写一篇设计文档，目录是什么</h3>
+</div>
+<div id="outline-container-org5f8eaae" class="outline-3">
+<h3 id="org5f8eaae"><span class="section-number-3">5.9</span> 什么场景应该拆分系统，什么场景应该合并系统</h3>
+</div>
+<div id="outline-container-org415e45c" class="outline-3">
+<h3 id="org415e45c"><span class="section-number-3">5.10</span> 系统和模块的区别，分别在什么场景下使用</h3>
+</div>
+</div>
+<div id="outline-container-orgb79aa75" class="outline-2">
+<h2 id="orgb79aa75"><span class="section-number-2">6</span> reference</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org9ae9e3d" class="outline-3">
+<h3 id="org9ae9e3d"><span class="section-number-3">6.1</span> <a href="https://www.bilibili.com/read/cv1339714/">https://www.bilibili.com/read/cv1339714/</a></h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-06-12 三 09:06</p>
+<p class="date">Created: 2019-06-12 三 09:06</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
